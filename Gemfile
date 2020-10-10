@@ -78,3 +78,4 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 
 gem 'slim'
+gem 'html2slim'
