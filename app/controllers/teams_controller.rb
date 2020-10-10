@@ -1,6 +1,9 @@
 class TeamsController < ApplicationController
   def new
   end
+  def create
+
+  end
 
   def show
   end
@@ -8,6 +11,14 @@ class TeamsController < ApplicationController
   def edit
   end
 
+  def update
+
+  end
+
   def index
+  end
+
+  def destroy
+    
   end
 end
