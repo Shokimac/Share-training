@@ -1,0 +1,23 @@
+
+h
+|お問い合わせ
+
+= form_with model:@inquiry, url:inquiries_path, method: :post, local: true do |f|
+
+        = f.label :name, "お名前", class:"input__label"
+        br/
+        = f.text_field :name, class:"input__form"
+
+        br
+        = f.label :email, "メールアドレス", class:"input__label"
+        br/
+        = f.email_field :email, class:"input__form"
+
+        br
+        = f.label :body, "お問い合わせ内容", class:"input__label"
+        br/
+        = f.text_area :body, class:"input__form--area"
+
+        br/
+        = f.submit "送信", class:"contact__button"
+        
