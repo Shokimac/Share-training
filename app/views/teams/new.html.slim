@@ -14,9 +14,9 @@ h1
     = f.label :introduction
     br
     = f.text_area :introduction
-  
-  .input
-    = f.label :genre_id
-    = f.radio_button :genre_id, :'筋トレ'
 
-    = f.submit
+  .input
+    = f.select  :genre_id, [['筋トレ', 1],['シェイプアップ', 2],['脱メタボ', 3]]
+  br
+  
+  = f.submit
