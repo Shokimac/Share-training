@@ -1,4 +1,22 @@
 h1
   | Teams#new
-p
-  | Find me in app/views/teams/new.html.erb
+
+= form_with model: @team, local: true do |f|
+
+  = render 'layouts/error_message', model: f.object
+
+  .input
+    = f.label :name
+    br
+    = f.text_field :name
+
+  .input
+    = f.label :introduction
+    br
+    = f.text_area :introduction
+  
+  .input
+    = f.label :genre_id
+    = f.radio_button :genre_id, :'筋トレ'
+
+    = f.submit
