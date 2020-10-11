@@ -1,4 +1,8 @@
 h1
   | Teams#show
-p
-  | Find me in app/views/teams/show.html.erb
+
+= @team.name
+br
+= @team.introduction
+br
+= attachment_image_tag @team, :image, :fill, 300, 300, format: 'jpeg'
