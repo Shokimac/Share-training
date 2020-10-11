@@ -5,7 +5,6 @@ class InquiriesController < ApplicationController
     
     def create
         @inquiry = Inquiry.new(inquiry_params)
-        binding.pry
         if @inquiry.save
             InquiryMailer.send_mail(@inquiry).deliver_now
             redirect_to root_path, notice: 'メールが送信されました。'
