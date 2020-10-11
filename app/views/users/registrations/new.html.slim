@@ -17,6 +17,11 @@ h2
     = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
 
   .field
+    = f.label :goal
+    br/
+    = f.text_field  :goal
+
+  .field
     = f.label :email
     br
     = f.email_field :email, autocomplete: "email"
