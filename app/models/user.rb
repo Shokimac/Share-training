@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  attachment :image
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -9,6 +12,7 @@ class User < ApplicationRecord
   has_many :team_members, dependent: :destroy
   has_many :training_records, dependent: :destroy
   has_many :post_messages, dependent: :destroy
+  belongs_to :genre
 
   def self.guest
     find_or_create_by!(email: 'guest@sample.com') do |user|
