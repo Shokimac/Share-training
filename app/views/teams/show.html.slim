@@ -6,3 +6,7 @@ br
 = @team.introduction
 br
 = attachment_image_tag @team, :image, :fill, 300, 300, format: 'jpeg'
+
+br/
+= link_to  "チーム編集", edit_team_path(@team)
+= link_to  "チーム削除", team_path(@team), method: :delete

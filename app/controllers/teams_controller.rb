@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   end
 
   def create
-    binding.pry
     @team = Team.new(team_params)
     if @team.save
     redirect_to team_path(@team)
@@ -18,23 +17,29 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
+  def index
+    @teams = Team.all
+  end
+
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
-
-  end
-
-  def index
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+    redirect_to team_path(@team)
   end
 
   def destroy
-    
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to teams_path
   end
 
   private
 
   def team_params
-    params.require(:team).permit(:name, :introduction, :image_id)
+    params.require(:team).permit(:name, :introduction, :image)
   end
 end
