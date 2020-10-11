@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :training_records, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :teams
-  resource  :inquiries, only: [:create]
+  resource  :inquiries, only: [:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
