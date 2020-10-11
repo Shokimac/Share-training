@@ -1,4 +1,11 @@
 h1
   | Users#show
-p
-  | Find me in app/views/users/show.html.erb
+
+= @user.name
+br/
+= @user.genre.name
+br/
+= @user.email
+br/
+= attachment_image_tag @user, :image, :fill, 300, 300, format: 'jpeg'
+br/
