@@ -4,9 +4,17 @@ h2
   = render "users/shared/error_messages", resource: resource
 
   .field
+    = f.attachment_field :image
+
+  .field
     = f.label :name
     br
-    = f.text_field :name, autofocus: true 
+    = f.text_field :name, autofocus: true
+  
+  .field
+    = f.label :genre_id
+    br
+    = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
 
   .field
     = f.label :email
