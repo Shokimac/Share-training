@@ -1,4 +1,23 @@
 h1
   | Users#edit
-p
-  | Find me in app/views/users/edit.html.erb
+
+= form_with model:@user, local: true do |f|
+  = f.label :name
+  br/
+  = f.text_field :name
+  br/
+  = f.label :goal
+  br/
+  = f.text_field :goal
+  br/
+  = f.label :genre
+  br/
+  = f.select :genre, [['筋トレ', 1],['シェイプアップ', 2],['脱メタボ', 3]]
+  br/
+  = f.label :email
+  = f.email_field :email
+  br/
+  = f.label :image
+  = f.attachment_field :image
+  br/
+  = f.submit '更新'
