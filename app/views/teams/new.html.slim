@@ -6,6 +6,9 @@ h1
   = render 'layouts/error_message', model: f.object
 
   .input
+    = f.attachment_field :image
+
+  .input
     = f.label :name
     br
     = f.text_field :name
