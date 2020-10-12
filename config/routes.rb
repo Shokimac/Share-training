@@ -8,11 +8,19 @@ Rails.application.routes.draw do
               registrations: 'users/registrations',
             }
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+
   resources :users, only: [:show, :edit, :update] do
     resources :post_messages, only: [:create, :destroy]
     resources :bookmarks, only: [:create, :destroy]
     resources :training_records, only: [:new, :create, :edit, :update, :destroy]
+    get 'confirmation' => 'users#confirmation'
+    post 'withdrawal' => 'users#withdrawal'
+    patch 'withdrawal' => 'users#withdrawal'
   end
+  
   resources :teams
   resource  :inquiries, only: [:new, :create]
 

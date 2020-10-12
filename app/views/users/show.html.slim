@@ -1,4 +1,21 @@
 h1
   | Users#show
+
+= @user.name
+br/
+= @user.genre.name
+br/
+= @user.email
+br/
+= @user.goal
+br/
+= attachment_image_tag @user, :image, :fill, 300, 300, format: 'jpeg'
+br/
 p
-  | Find me in app/views/users/show.html.erb
+  | 所属しているチーム
+  br
+  - if @join_team.nil?
+    p
+      | 所属なし
+  - else
+      = @join_team.name
