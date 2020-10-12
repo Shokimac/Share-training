@@ -5,14 +5,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @teams = Team.all
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create 
+    super
+    @join_team = TeamMember.new
+    @join_team.save(user_id: current_user.id, team_id: params[:team][:id])
+  end
 
   # GET /resource/edit
   # def edit
