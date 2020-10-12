@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     resources :post_messages, only: [:create, :destroy]
     resources :bookmarks, only: [:create, :destroy]
     resources :training_records, only: [:new, :create, :edit, :update, :destroy]
+    get 'confirmation' => 'users#confirmation'
+    post 'withdrawal' => 'users#withdrawal'
+    patch 'withdrawal' => 'users#withdrawal'
   end
+  
   resources :teams
   resource  :inquiries, only: [:create]
 
