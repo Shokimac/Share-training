@@ -14,7 +14,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create 
     super
     @join_team = TeamMember.new
-    @join_team.save(user_id: current_user.id, team_id: params[:team][:id])
+    @join_team.user_id = current_user.id
+    @join_team.team_id = params[:team][:id]
+    @join_team.save
   end
 
   # GET /resource/edit
