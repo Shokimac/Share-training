@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    team_id = TeamMember.find_by(user_id: @user.id).team_id
+    @join_team = Team.find(team_id)
   end
 
   def edit
