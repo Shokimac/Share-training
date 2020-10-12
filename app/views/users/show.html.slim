@@ -14,4 +14,8 @@ br/
 p
   | 所属しているチーム
   br
-  = @join_team.name
+  - if @join_team.nil?
+    p
+      | 所属なし
+  - else
+      = @join_team.name
