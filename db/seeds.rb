@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.create!(name:'テストユーザー１',email:'ito@sample.com',password:'itoito')
-Genre.create!(name:'筋力トレーニング')
-Genre.create!(name:'シェイプアップ')
-Genre.create!(name:'脱メタボ')
+Genre.create!(name: "筋力トレーニング")
+Genre.create!(name: "シェイプアップ")
+Genre.create!(name: "脱メタボ")

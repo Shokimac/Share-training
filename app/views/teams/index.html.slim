@@ -1,4 +1,19 @@
 h1
   | Teams#index
-p
-  | Find me in app/views/teams/index.html.erb
+
+- @teams.each do |team|
+
+    p
+      |チーム名
+      br/
+      = team.name
+  
+    p
+      |チーム紹介文
+      br/
+      = team.introduction
+  
+    p
+      |画像
+      br/
+      = attachment_image_tag team, :image, size: "200x200" 
