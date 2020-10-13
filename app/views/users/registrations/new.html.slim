@@ -2,10 +2,36 @@ h2
   | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "users/shared/error_messages", resource: resource
+
+  .field
+    = f.attachment_field :image
+
+  .field
+    = f.label :name
+    br
+    = f.text_field :name, autofocus: true
+  
+  .field 
+  p
+    | 所属するチーム
+    br
+      = collection_select(:team, :id, @teams, :id, :name)
+
+    
+    
+    = f.label :genre_id
+    br
+    = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
+
+  .field
+    = f.label :goal
+    br/
+    = f.text_field  :goal
+
   .field
     = f.label :email
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autocomplete: "email"
   .field
     = f.label :password
     - if @minimum_password_length

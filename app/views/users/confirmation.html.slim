@@ -1,0 +1,9 @@
+h1
+    |チーム脱退確認画面
+
+p
+    |本当に脱退しますか??
+
+= link_to  "脱退する",  user_withdrawal_path(@user), method: :post
+br
+= link_to  "脱退しない",  user_path(@user)
