@@ -11,13 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  def create 
-    super
-    @join_team = TeamMember.new
-    @join_team.user_id = current_user.id
-    @join_team.team_id = params[:team][:id]
-    @join_team.save
-  end
+  # def create 
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
