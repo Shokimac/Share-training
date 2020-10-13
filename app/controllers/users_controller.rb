@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # 簡潔な書き方があれば、後ほど修正する予定
-    unless TeamMember.find_by(user_id: @user.id).nil?
-      team_id = TeamMember.find_by(user_id: @user.id).team_id
-      @join_team = Team.find(team_id)
-    else
-      @join_team = nil
-    end
   end
 
   def edit
