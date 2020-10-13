@@ -11,14 +11,13 @@ h2
     br
     = f.text_field :name, autofocus: true
   
-  .field 
-  p
-    | 所属するチーム
-    br
-      = collection_select(:team, :id, @teams, :id, :name)
+  / .field 
+  / p
+  /   | 所属するチーム
+  /   br
+  /     = collection_select(:team, :id, @teams, :id, :name)
 
-    
-    
+  .field
     = f.label :genre_id
     br
     = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
