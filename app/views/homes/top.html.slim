@@ -4,3 +4,8 @@ p
   | Find me in app/views/homes/top.html.erb
 
 = link_to  "ゲストログイン", users_guest_sign_in_path, method: :post
+
+= form_tag( search_path, local: true) do 
+  = text_field_tag (:word), ""
+  br
+  = submit_tag "検索"
