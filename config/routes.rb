@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'homes#top'
+  post 'search' => 'homes#search'
 
   devise_for :users,
               controllers: {
