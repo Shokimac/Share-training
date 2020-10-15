@@ -7,6 +7,11 @@ br
 br
 = attachment_image_tag @team, :image, :fill, 300, 300, format: 'jpeg'
 
+br
+- if @team.bookmarked_by?(current_user)
+  = link_to  "ブックマークする", team_bookmarks_path(@team), method: :post
+- else
+  = link_to  "ブックマークを解除する", team_bookmark_path(@team), method: :delete
 br/
 = link_to  "チーム編集", edit_team_path(@team)
 = link_to  "チーム削除", team_path(@team), method: :delete
