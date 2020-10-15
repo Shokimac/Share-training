@@ -19,3 +19,9 @@ p
       | 所属なし
   - else
       = @join_team.name
+
+p
+  | ブックマーク済みのチーム
+- @user.bookmarks.each do |bookmark|
+  = bookmark.team.name
+  br/
