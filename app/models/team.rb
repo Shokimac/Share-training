@@ -4,4 +4,8 @@ class Team < ApplicationRecord
     has_many :footprints, dependent: :destroy
     has_many :team_members, dependent: :destroy
     has_many :post_messages, dependent: :destroy
+
+    def bookmarked_by?(user)
+        bookmarks.find_by(user_id: user.id).blank?
+    end
 end
