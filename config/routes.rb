@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update] do
-    resources :post_messages, only: [:create, :destroy]
     resources :training_records, only: [:new, :create, :edit, :update, :destroy]
     get 'confirmation' => 'users#confirmation'
     post 'withdrawal' => 'users#withdrawal'
@@ -23,7 +22,9 @@ Rails.application.routes.draw do
   
   resources :teams do
     resources :bookmarks, only: [:create, :destroy]
+    resources :post_messages, only: [:create, :destroy]
   end
+
   resource  :inquiries, only: [:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
