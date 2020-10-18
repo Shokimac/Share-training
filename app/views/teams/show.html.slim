@@ -12,6 +12,20 @@ br
   = link_to  "ブックマークする", team_bookmarks_path(@team), method: :post
 - else
   = link_to  "ブックマークを解除する", team_bookmark_path(@team), method: :delete
+
 br/
+- @to_team_messages.each do |message|
+  = message.user.name
+  br/
+  = message.body
+  - if message.user == current_user
+    = link_to "  削除する", team_post_message_path(@team, message), method: :delete
+
+br/
+= form_with model:@new_message, url: team_post_messages_path(@team), local: true do |f|
+  = f.text_area :body
+  br/
+  = f.submit "メッセージを送る"
+
 = link_to  "チーム編集", edit_team_path(@team)
 = link_to  "チーム削除", team_path(@team), method: :delete
