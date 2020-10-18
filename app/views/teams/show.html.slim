@@ -14,6 +14,14 @@ br
   = link_to  "ブックマークを解除する", team_bookmark_path(@team), method: :delete
 
 br/
+- @to_team_messages.each do |message|
+  = message.user.name
+  br/
+  = message.body
+  - if message.user == current_user
+    = link_to "  削除する", team_post_message_path(@team, message), method: :delete
+
+br/
 = form_with model:@new_message, url: team_post_messages_path(@team), local: true do |f|
   = f.text_area :body
   br/
