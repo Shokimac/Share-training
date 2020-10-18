@@ -8,6 +8,9 @@ class PostMessagesController < ApplicationController
     end
 
     def destroy
+        message = PostMessage.find(params[:id])
+        message.destroy
+        redirect_to team_path(params[:team_id])
     end
 
     private
