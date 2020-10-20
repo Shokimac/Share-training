@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TrainigGenreTest < ActiveSupport::TestCase
+class TrainingGenreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
