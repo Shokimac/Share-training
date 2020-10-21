@@ -54,7 +54,7 @@ p
 - @records.each do |record|
   p 
     | トレーニング種目
-  = record.training_genres.name
+  = record.training_genre.name
 
   br/
   p
@@ -66,3 +66,7 @@ p
     | このトレーニングの感想
   = record.comment
 
+  br
+  = link_to  "実績編集", edit_user_training_record_path(@user, record)
+  br/
+  = link_to  "実績削除",  user_training_record_path(@user, record), method: :delete
