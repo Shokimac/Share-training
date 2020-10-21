@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @new_training_genre = TrainingGenre.new
+    @new_record = TrainingRecord.new
+    @genres = TrainingGenre.where(user_id: current_user.id).all
   end
 
   def edit
