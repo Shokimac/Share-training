@@ -1,4 +1,4 @@
 class TrainingRecord < ApplicationRecord
     belongs_to :user
-    has_many :training_genres
+    belongs_to :training_genre
 end
