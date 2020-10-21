@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :team_members, dependent: :destroy
   has_many :training_records, dependent: :destroy
   has_many :post_messages, dependent: :destroy
+  has_many :training_genres, dependent: :destroy
   belongs_to :genre
 
   def self.guest

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update] do
-    resources :training_records, only: [:new, :create, :edit, :update, :destroy]
+    resources :training_records, only: [:create, :edit, :update, :destroy]
+    resources :training_genres, only: [:create, :update, :destroy]
     get 'confirmation' => 'users#confirmation'
     post 'withdrawal' => 'users#withdrawal'
     patch 'withdrawal' => 'users#withdrawal'

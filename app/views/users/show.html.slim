@@ -25,3 +25,44 @@ p
 - @user.bookmarks.each do |bookmark|
   = bookmark.team.name
   br/
+
+p
+  | トレーニング種目登録
+= form_with model:@new_training_genre, url:user_training_genres_path(@user), method: :post do |f|
+  = f.label :name, "種目名"
+  = f.text_field :name
+  br/
+  = f.submit "種目登録"
+
+p
+  | トレーニング実績登録
+= form_with model:@new_record, url:user_training_records_path(@user), method: :post do |f|
+  = select_tag :event, options_from_collection_for_select(@genres, :id, :name)
+
+  br
+  = f.label :body, "トレーニング内容"
+  br
+  = f.text_field :body
+
+  br
+  = f.label :comment, "感想"
+  br
+  = f.text_area :comment
+  br
+  = f.submit "実績登録"
+
+- @records.each do |record|
+  p 
+    | トレーニング種目
+  = record.training_genres.name
+
+  br/
+  p
+    | トレーニング内容
+  = record.body
+
+  br/
+  p
+    | このトレーニングの感想
+  = record.comment
+
