@@ -1,9 +1,5 @@
 class TrainingRecordsController < ApplicationController
 
-    def new
-        
-    end
-
     def create
 
     end
