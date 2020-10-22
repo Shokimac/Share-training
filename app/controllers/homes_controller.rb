@@ -5,4 +5,8 @@ class HomesController < ApplicationController
   def search
     @teams = Team.where("name LIKE?", "#{params[:word]}%")
   end
+
+  def privacy_policy
+
+  end
 end

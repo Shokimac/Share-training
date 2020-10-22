@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top'
   post 'search' => 'homes#search'
+  get 'privacy_policy' => 'homes#privacy_policy'
 
   devise_for :users,
               controllers: {
