@@ -1,3 +1,53 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.mainVisual {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: blue;
+}
+
+.searchBox {
+    float: left;
+    width: 30%;
+    height: 100%;
+    margin: 0 10%;
+    background-color: brown;
+}
+
+.mainTitle {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: chocolate;
+}
+
+.newTeam {
+    width: 100%;
+    height: 400px;
+    background-color: darkcyan;
+}
+
+.subVisual {
+    display: flex;
+    width: 100%;
+    height: 800px;
+    background-color: darkmagenta;
+}
+
+.bookmarkRank {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: darksalmon;
+}
+
+.commentView {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: deeppink;
+}
