@@ -3,17 +3,23 @@
   .searchBox
     .genreBox
       .genreBox__genre
+        p
+        | 筋トレ
       .genreBox__genre--shapeUp
+        p
+        | シェイプアップ
       .genreBox__genre--metabolic
+        p
+        | 脱メタボ
     .formBoxK
       p
-        | 筋トレ
+        | 筋トレから検索
     .formBoxS
       p
-        | シェイプアップ
+        | シェイプアップから検索
     .formBoxM
       p
-        | 脱メタボ
+        | 脱メタボから検索
       / = form_tag( search_path, local: true) do 
       / = text_field_tag (:word), ""
       / br
