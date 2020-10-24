@@ -1,11 +1,26 @@
 
 .mainVisual
   .searchBox
-    = form_tag( search_path, local: true) do 
-    = text_field_tag (:word), ""
-    br
-    = submit_tag "検索"
+    .genreBox
+      .genreBox__genre
+      .genreBox__genre--shapeUp
+      .genreBox__genre--metabolic
+    .formBoxK
+      p
+        | 筋トレ
+    .formBoxS
+      p
+        | シェイプアップ
+    .formBoxM
+      p
+        | 脱メタボ
+      / = form_tag( search_path, local: true) do 
+      / = text_field_tag (:word), ""
+      / br
+      / = submit_tag "検索"
   .mainTitle
+    h1
+      | シェアトレ！
 
 .newTeam
 

@@ -7,22 +7,81 @@
     display: flex;
     width: 100%;
     height: 400px;
-    background-color: blue;
+    background-image: url('main-visual.jpg');
+    background-position: center;
+    background-size: 100%;
 }
 
 .searchBox {
-    float: left;
+    display: flex;
+    position: relative;
     width: 30%;
     height: 100%;
-    margin: 0 10%;
-    background-color: brown;
+    margin: 0 20% 0 1.5%;
+    border: #ffffff 3px solid;
+    // background-color: brown;
+}
+
+.genreBox {
+    width: 30%;
+    height: 100%;
+
+    &__genre {
+        float: none;
+        width: 100%;
+        height: 33%;
+        cursor: pointer;
+        background-color: #e017c2;
+    }
+
+    &__genre--shapeUp {
+        @extend .genreBox__genre;
+        background-color: #174de0;
+    }
+
+    &__genre--metabolic {
+        @extend .genreBox__genre;
+        height: 34%;
+        background-color: #13d61d;
+    }
+}
+
+.formBoxK {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    z-index: 1;
+    background-color: #e017c2;
+}
+
+.formBoxS {
+    @extend .formBoxK;
+    z-index: 0;
+    background-color: #174de0;
+}
+
+.formBoxM {
+    @extend .formBoxK;
+    z-index: 0;
+    background-color: #13d61d;
 }
 
 .mainTitle {
     float: right;
     width: 50%;
     height: 100%;
-    background-color: chocolate;
+    // background-color: chocolate;
+
+    & h1 {
+        display: block;
+        color: #ffffff;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        font-size: 3em;
+        margin-left: 35%;
+        margin-top: 15%;
+    }
 }
 
 .newTeam {
