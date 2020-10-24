@@ -15,27 +15,28 @@
       p
         | 筋トレから検索
 
-      = form_tag( search_path, local: true) do 
-      = text_field_tag (:word), ""
-      = hidden_field_tag (:genre, 1)
-      br
-      = submit_tag "検索"
+      = form_tag(search_path, local: true) do 
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 1)
+        br
+        = submit_tag "検索"
+
     .formBoxS
       p
         | シェイプアップから検索
       = form_tag( search_path, local: true) do 
-      = text_field_tag (:word), ""
-      = hidden_field_tag (:genre, 2)
-      br
-      = submit_tag "検索"
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 2)
+        br
+        = submit_tag "検索"
     .formBoxM
       p
         | 脱メタボから検索
       = form_tag( search_path, local: true) do 
-      = text_field_tag (:word), ""
-      = hidden_field_tag (:genre, 3)
-      br
-      = submit_tag "検索"
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 3)
+        br
+        = submit_tag "検索"
   .mainTitle
     h1
       | シェアトレ！
