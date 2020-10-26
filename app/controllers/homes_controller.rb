@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def top
+    @newTeams = Team.order(:created_at).limit(5)
   end
 
   def search

@@ -88,7 +88,6 @@
 .newTeamView {
     width: 100%;
     height: 400px;
-    background-color: darkcyan;
 
     &__title {
         width: 100%;
@@ -99,38 +98,36 @@
     }
 }
 
-.newTeam {
+.newTeamZone {
     display: flex;
     width: 100%;
     height: 80%;
-    background-color: #0c59e9;
 }
 
-.newTeamA {
+.newTeam {
     width: 20%;
     height: 100%;
-    background-color: #df1010;
 }
 
-.newTeamB {
-    @extend .newTeamA;
-    background-color: #eedf10;
-}
+// .newTeamB {
+//     @extend .newTeamA;
+//     background-color: #eedf10;
+// }
 
-.newTeamC {
-    @extend .newTeamA;
-    background-color: #3ce209;
-}
+// .newTeamC {
+//     @extend .newTeamA;
+//     background-color: #3ce209;
+// }
 
-.newTeamD {
-    @extend .newTeamA;
-    background-color: #101fee;
-}
+// .newTeamD {
+//     @extend .newTeamA;
+//     background-color: #101fee;
+// }
 
-.newTeamE {
-    @extend .newTeamA;
-    background-color: #8402ee;
-}
+// .newTeamE {
+//     @extend .newTeamA;
+//     background-color: #8402ee;
+// }
 
 .subVisual {
     display: flex;
