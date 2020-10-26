@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
   def top
-    @newTeams = Team.order(:created_at).limit(5)
+    @newTeams = Team.limit(5)
     @bookmarks = Team.limit(5).sort {|a,b| b.bookmarks.count <=> a.bookmarks.count}
+    @new_messages = PostMessage.limit(5)
   end
 
   def search

@@ -48,12 +48,18 @@
   .newTeamZone
     - @newTeams.each do |newTeam|
       .newTeam
-        = link_to  newTeam.name, team_path(newTeam) 
-        br/
-        = newTeam.introduction
+        .newTeam__image
+          = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
+        .newTeam__title
+          = link_to  newTeam.name, team_path(newTeam) 
+        .newTeam__introduction
+          = newTeam.introduction
 
 .subVisual
   .ranking
+    .ranking__title
+      h3
+        | チーム別ブックマーク数ランキング
     - @bookmarks.each do |team|
       .bookmark
         .bookmark__rank
@@ -61,4 +67,18 @@
           = link_to team.name, team_path(team) 
         .bookmark__count
           = team.bookmarks.count
-  .commentView
+  .allNewMessage
+    .allNewMessage__title
+      h3
+        | 最近チームへ送られたメッセージ
+    - @new_messages.each do |message|
+      .newMessage
+        .newMessage__title
+          p
+            | #{link_to message.user.name, user_path(message.user)}から
+            | #{link_to message.team.name, team_path(message.team)}へのメッセージ
+        .newMessage__body
+          = message.body
+        .newMessage__time
+          = message.created_at
+      
