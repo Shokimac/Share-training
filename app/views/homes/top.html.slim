@@ -48,10 +48,17 @@
   .newTeamZone
     - @newTeams.each do |newTeam|
       .newTeam
-        = newTeam.name
+        = link_to  newTeam.name, team_path(newTeam) 
         br/
         = newTeam.introduction
 
 .subVisual
-  .bookmarkRank
+  .ranking
+    - @bookmarks.each do |team|
+      .bookmark
+        .bookmark__rank
+        .bookmark__name
+          = link_to team.name, team_path(team) 
+        .bookmark__count
+          = team.bookmarks.count
   .commentView
