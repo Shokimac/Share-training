@@ -45,22 +45,18 @@
   .newTeamView__title
     h1
       | 最近加入されたチーム
-    / - @newTeams.each do |newTeam|
-    /   .newTeam
-    /     .newTeam__image
-    /       = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
-    /     .newTeam__title
-    /       = link_to  newTeam.name, team_path(newTeam) 
-    /     .newTeam__introduction
-    /       = newTeam.introduction
   .newTeamZone
     .swiper-container
       / <!-- Additional required wrapper -->
       .swiper-wrapper
-        / <!-- Slides -->
-        .swiper-slide Slide 1
-        .swiper-slide Slide 2
-        .swiper-slide Slide 3
+        - @newTeams.each do |newTeam|
+          .swiper-slide
+            .newTeam__image
+              = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
+            .newTeam__title
+              = link_to  newTeam.name, team_path(newTeam) 
+            .newTeam__introduction
+              = newTeam.introduction
       / <!-- If we need pagination -->
       .swiper-pagination
 

@@ -1,21 +1,24 @@
 $(function () {
     let mySwiper = new Swiper('.swiper-container', {
-        slidesPerView: 3,
-        slideToClickedSlide: true,
+        // Optional parameters
+        // direction: 'vertical',
+        loop: true,
+        effect: 'coverflow',
+
+        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
         },
+
+        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            prevEl: '.swiper-button-prev',
         },
-        breakpoints: {
-            767: {
-                slidesPerView: 1,
-                spaceBetween: 0
-            }
-        }
-    });
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    })
 });
