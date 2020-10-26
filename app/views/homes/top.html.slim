@@ -45,15 +45,31 @@
   .newTeamView__title
     h1
       | 最近加入されたチーム
+    / - @newTeams.each do |newTeam|
+    /   .newTeam
+    /     .newTeam__image
+    /       = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
+    /     .newTeam__title
+    /       = link_to  newTeam.name, team_path(newTeam) 
+    /     .newTeam__introduction
+    /       = newTeam.introduction
   .newTeamZone
-    - @newTeams.each do |newTeam|
-      .newTeam
-        .newTeam__image
-          = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
-        .newTeam__title
-          = link_to  newTeam.name, team_path(newTeam) 
-        .newTeam__introduction
-          = newTeam.introduction
+    .swiper-container
+      / <!-- Additional required wrapper -->
+      .swiper-wrapper
+        / <!-- Slides -->
+        .swiper-slide Slide 1
+        .swiper-slide Slide 2
+        .swiper-slide Slide 3
+      / <!-- If we need pagination -->
+      .swiper-pagination
+
+      / <!-- If we need navigation buttons -->
+      .swiper-button-prev
+      .swiper-button-next
+
+      / <!-- If we need scrollbar -->
+      .swiper-scrollbar
 
 .subVisual
   .ranking
@@ -81,4 +97,5 @@
           = message.body
         .newMessage__time
           = message.created_at
-      
+
+script src="https://unpkg.com/swiper/swiper-bundle.min.js"
