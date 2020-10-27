@@ -1,6 +1,6 @@
 $(document.addEventListener('DOMContentLoaded', function () {
     const hero = new HeroSlider('.swiper-container');
-    hero.start();
+    hero.start(6000);
 }));
 
 class HeroSlider {
@@ -43,9 +43,9 @@ class HeroSlider {
         })
     }
 
-    start() {
+    start(time) {
         this.swiper.params.autoplay = {
-            delay: 4000,
+            delay: time,
             disableOnInteraction: false,
         }
         this.swiper.autoplay.start();
