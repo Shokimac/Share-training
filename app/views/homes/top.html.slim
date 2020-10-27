@@ -1,4 +1,3 @@
-
 .mainVisual
   .searchBox
     .genreBox
@@ -45,27 +44,25 @@
   .newTeamView__title
     h1
       | 最近加入されたチーム
-  .newTeamZone
-    .swiper-container
-      / <!-- Additional required wrapper -->
-      .swiper-wrapper
-        - @newTeams.each do |newTeam|
-          .swiper-slide
-            .newTeam__image
-              = attachment_image_tag newTeam, :image, :fill, 229, 208, format: 'jpeg'
-            .newTeam__title
-              = link_to  newTeam.name, team_path(newTeam) 
-            .newTeam__introduction
-              = newTeam.introduction
-      / <!-- If we need pagination -->
+  .swiper-container
+    / <!-- Additional required wrapper -->
+    .swiper-wrapper
+      - @newTeams.each do |newTeam|
+        .swiper-slide
+          = attachment_image_tag newTeam, :image, :fill, 1000, 300, format: 'jpeg'
+          .swiper-slide__title
+            = link_to  newTeam.name, team_path(newTeam) 
+          .swiper-slide__introduction
+            = newTeam.introduction
+      / / <!-- If we need pagination -->
       .swiper-pagination
 
-      / <!-- If we need navigation buttons -->
-      .swiper-button-prev
-      .swiper-button-next
+      / / <!-- If we need navigation buttons -->
+      / .swiper-button-prev
+      / .swiper-button-next
 
-      / <!-- If we need scrollbar -->
-      .swiper-scrollbar
+      / / <!-- If we need scrollbar -->
+      / .swiper-scrollbar
 
 .subVisual
   .ranking
