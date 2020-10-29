@@ -1,0 +1,19 @@
+h1
+    | TrainingRecord#edit
+
+= form_with model:@record, url:user_training_record_path(current_user, @record), method: :patch do |f|
+
+    = select_tag :event, options_from_collection_for_select(@genres, :id, :name)
+    br/
+
+    = f.label :body, "トレーニング内容"
+    br
+    = f.text_field :body
+
+    br
+    = f.label :comment, "トレーニングへの感想"
+    br/
+    = f.text_area :comment
+
+    br/
+    = f.submit "更新する"

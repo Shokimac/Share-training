@@ -1,0 +1,6 @@
+h1
+    |
+    検索結果
+
+- @teams.each do |team|
+    = link_to "#{team.name}", team_path(team)

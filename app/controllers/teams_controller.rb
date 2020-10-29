@@ -17,6 +17,8 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @new_message = PostMessage.new
+    @to_team_messages = PostMessage.where(team_id: params[:id])
   end
 
   def index
