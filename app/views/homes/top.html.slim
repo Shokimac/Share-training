@@ -76,6 +76,9 @@
           = link_to team.name, team_path(team) 
         .bookmark__count
           = team.bookmarks.count
+        .bookmark__members
+          - team.users.each do |member|
+            = link_to member.name, user_path(member) 
   .allNewMessage
     .allNewMessage__title
       h3
