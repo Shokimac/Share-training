@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     if @team.save
       current_user.team_id = @team.id
+      current_user.leader_flg = true
       redirect_to team_path(@team)
     else
       @team.errors.full_messages
