@@ -72,6 +72,7 @@
     - @bookmarks.each do |team|
       .bookmark
         .bookmark__rank
+          = attachment_image_tag team, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png"
         .bookmark__name
           = link_to team.name, team_path(team) 
         .bookmark__count
