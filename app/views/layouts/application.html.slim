@@ -5,13 +5,35 @@ html
       | Myapp
     = csrf_meta_tags
     = csp_meta_tag
+    script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"
+    link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-  header
-    = link_to  "新規登録",  new_user_registration_path
-    = link_to  "ログイン", new_user_session_path
-    = link_to  "ログアウト",  destroy_user_session_path, method: :delete
-  p 
-    = notice
-    = yield
+    header
+      .logoArea
+        p
+          | ロゴエリア
+      .menuArea
+        - if user_signed_in?
+          = link_to  "トップページ", root_path 
+          = link_to  "マイページ", user_path(current_user)
+          = link_to  "チーム一覧", teams_path
+          = link_to  "お問い合わせ", new_inquiries_path
+          = link_to  "ログアウト",  destroy_user_session_path, method: :delete
+        - else
+          = link_to  "新規登録",  new_user_registration_path
+          = link_to  "ログイン", new_user_session_path
+          = link_to  "ゲストログイン", users_guest_sign_in_path, method: :post
+          = link_to  "お問い合わせ", new_inquiries_path
+    main
+      = notice
+      = yield
+    footer
+      .logoArea
+        p
+          | ロゴエリア
+      .menuArea
+        = link_to  "プライバシーポリシー", privacy_policy_path
+        = link_to  "お問い合わせ", new_inquiries_path 

@@ -1,3 +1,238 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$cWhite: #ffffff;
+
+.mainVisual {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-image: url('main-visual.jpg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.searchBox {
+    display: flex;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    margin: 0 20% 0 1.5%;
+    // border: #ffffff 3px solid;
+    // background-color: brown;
+}
+
+.genreBox {
+    width: 30%;
+    height: 100%;
+
+    &__genre {
+        float: none;
+        width: 100%;
+        height: 33%;
+        cursor: pointer;
+        background-color: $cWhite;
+        opacity: 0.8;
+    }
+
+    &__genre--shapeUp {
+        @extend .genreBox__genre;
+        color: $cWhite;
+        background-color: #202020;
+    }
+
+    &__genre--metabolic {
+        @extend .genreBox__genre;
+        height: 34%;
+        color: $cWhite;
+        background-color: #202020;
+    }
+}
+
+.formBoxK {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    z-index: 1;
+    background-color: $cWhite;
+}
+
+.formBoxS {
+    @extend .formBoxK;
+    z-index: 0;
+}
+
+.formBoxM {
+    @extend .formBoxK;
+    z-index: 0;
+}
+
+.mainTitle {
+    float: right;
+    width: 50%;
+    height: 100%;
+    // background-color: chocolate;
+
+    & h1 {
+        display: block;
+        color: $cWhite;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        font-size: 3em;
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+}
+
+.newTeamView {
+    width: 100%;
+
+    &__title {
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        line-height: 80px;
+        background-color: $cWhite;
+    }
+}
+
+.swiper-container {
+    width: 70%;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-slide {
+
+    height: 100%;
+
+    & > img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.3);
+        transition: transform 1.9s ease;
+    }
+
+    &-active {
+        & > img {
+            transform: none;
+        }
+
+        & .swiper-slide__title {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% + 20px));
+        color: $cWhite;
+        font-size: 25px;
+        opacity: 0;
+        transition: opacity 0.3s ease 1s, transform 0.3s ease 1s;
+
+        & a:visited {
+            color: $cWhite;
+        }
+    }
+
+    &__introduction {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.subVisual {
+    display: flex;
+    width: 100%;
+    height: 800px;
+}
+
+.ranking {
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    &__title {
+        width: 100%;
+        height: 5%;
+        text-align: center;
+        line-height: 40px;
+    }
+}
+
+.bookmark {
+    display: flex;
+    width: 100%;
+    height: 20%;
+
+    &__image {
+        width: 20%;
+        height: 100%;
+    }
+
+    &__zone2 {
+        margin: 0 2px;
+        width: 80%;
+        height: 100%;
+    }
+
+    &__name {
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        
+        &:visited {
+            color: blue;
+        }
+    }
+    
+    &__members {
+        display: inline;
+        width: 100%;
+        height: 65%;
+
+        & > p {
+            text-align: center;
+        }
+    }
+
+    &__count {
+        width: 100%;
+        height: 15%;
+        text-align: center;
+    }
+    
+    &__rank {
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.allNewMessage {
+    float: right;
+    width: 50%;
+    height: 100%;
+
+    &__title {
+        @extend .ranking__title;
+    }
+}
+
+.newMessage {
+    width: 100%;
+    height: 20%;
+}

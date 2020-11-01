@@ -1,11 +1,111 @@
-h1
-  | Homes#top
-p
-  | Find me in app/views/homes/top.html.erb
+.mainVisual
+  .searchBox
+    .genreBox
+      .genreBox__genre
+        p
+        | 筋トレ
+      .genreBox__genre--shapeUp
+        p
+        | シェイプアップ
+      .genreBox__genre--metabolic
+        p
+        | 脱メタボ
+    .formBoxK
+      p
+        | 筋トレから検索
 
-= link_to  "ゲストログイン", users_guest_sign_in_path, method: :post
+      = form_tag(search_path, local: true) do 
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 1)
+        br
+        = submit_tag "検索"
 
-= form_tag( search_path, local: true) do 
-  = text_field_tag (:word), ""
-  br
-  = submit_tag "検索"
+    .formBoxS
+      p
+        | シェイプアップから検索
+      = form_tag( search_path, local: true) do 
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 2)
+        br
+        = submit_tag "検索"
+    .formBoxM
+      p
+        | 脱メタボから検索
+      = form_tag( search_path, local: true) do 
+        = text_field_tag (:word), ""
+        = hidden_field_tag(:genre, 3)
+        br
+        = submit_tag "検索"
+  .mainTitle
+    h1
+      | シェアトレ！
+
+.newTeamView
+  .newTeamView__title
+    h1
+      | 最近加入されたチーム
+  .swiper-container
+    / <!-- Additional required wrapper -->
+    .swiper-wrapper
+      - @newTeams.each do |newTeam|
+        .swiper-slide
+          = attachment_image_tag newTeam, :image, :fill, 1000, 300, format: 'jpeg'
+          .swiper-slide__title
+            = link_to  newTeam.name, team_path(newTeam) 
+          .swiper-slide__introduction
+            = newTeam.introduction
+      / / <!-- If we need pagination -->
+      .swiper-pagination
+
+      / / <!-- If we need navigation buttons -->
+      / .swiper-button-prev
+      / .swiper-button-next
+
+      / / <!-- If we need scrollbar -->
+      / .swiper-scrollbar
+
+.subVisual
+  .ranking
+    .ranking__title
+      h3
+        | チーム別ブックマーク数ランキング
+    - @bookmarks.each_with_index do |team, i|
+      .bookmark
+        .bookmark__image
+          = attachment_image_tag team, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png"
+        .bookmark__zone2
+          .bookmark__name
+            = link_to team.name, team_path(team) 
+          .bookmark__members
+            p
+              | チームメンバー
+            - team.users.each do |member|
+              = link_to " ・#{member.name}", user_path(member)
+          .bookmark__count
+            span
+              | ブックマーク数：
+              = team.bookmarks.count
+        .bookmark__rank
+          - if i == 0
+            p
+              | King
+          - else
+            p
+              | 第#{i+1}位
+          
+  .allNewMessage
+    .allNewMessage__title
+      h3
+        | 最近チームへ送られたメッセージ
+    - @new_messages.each do |message|
+      .newMessage
+        .newMessage__title
+          p
+            | #{link_to message.user.name, user_path(message.user)}から
+            | #{link_to message.team.name, team_path(message.team)}へのメッセージ
+        .newMessage__body
+          = message.body
+        .newMessage__time
+          = message.created_at.strftime("%Y-%m-%d %H:%M")
+
+script src="https://unpkg.com/swiper/swiper-bundle.min.js"

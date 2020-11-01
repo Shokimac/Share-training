@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
   has_many :bookmarks, dependent: :destroy
   has_many :footprints, dependent: :destroy
   has_many :team_members, dependent: :destroy
@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :post_messages, dependent: :destroy
   has_many :training_genres, dependent: :destroy
   belongs_to :genre
+  belongs_to :team
 
   def self.guest
     find_or_create_by!(email: 'guest@sample.com') do |user|
