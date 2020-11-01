@@ -1,49 +1,52 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "users/shared/error_messages", resource: resource
+.signUp
+  .leftSide
+    h2
+      | 新規会員登録
+    
+    p
+      | #{link_to "ログイン", new_user_session_path}はこちらから
 
-  .field
-    = f.attachment_field :image
+    p
+      | #{link_to "チーム一覧", teams_path }はこちら
+    
+  .rightSide
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "users/shared/error_messages", resource: resource
 
-  .field
-    = f.label :name
-    br
-    = f.text_field :name, autofocus: true
-  
-  / .field 
-  / p
-  /   | 所属するチーム
-  /   br
-  /     = collection_select(:team, :id, @teams, :id, :name)
+      .field
+        = f.attachment_field :image
 
-  .field
-    = f.label :genre_id
-    br
-    = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
+      .field
+        = f.label :name
+        br
+        = f.text_field :name, autofocus: true
 
-  .field
-    = f.label :goal
-    br/
-    = f.text_field  :goal
+      .field
+        = f.label :genre_id
+        br
+        = f.select :genre_id, [['筋トレ', 1], ['シェイプアップ', 2], ['脱メタボ', 3]]
 
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "users/shared/links"
+      .field
+        = f.label :goal
+        br/
+        = f.text_field  :goal
+
+      .field
+        = f.label :email
+        br
+        = f.email_field :email, autocomplete: "email"
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            |  characters minimum)
+        br
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation
+        br
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .actions
+        = f.submit "Sign up"
