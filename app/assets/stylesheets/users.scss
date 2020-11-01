@@ -11,9 +11,8 @@
 }
 
 .leftSide {
-    width: 30%;
+    width: 25%;
     height: 100%;
-    background-color: #dd1010;
     
     & h2 {
         margin-top: 30px;
@@ -27,18 +26,26 @@
 }
 
 .center {
-    width: 25%;
+    width: 30%;
     height: 100%;
-    background-color: #1230da;
 }
 
 .rightSide {
     width: 45%;
     height: 100%;
     padding: 10px;
-    background-color: #d4e210;
 }
 
 .field {
     margin: 5px 0 5px 20px;
+
+    & img {
+        width: 200px;
+        height: 150px;
+        margin-top: 50px;
+    }
+}
+
+.action {
+    margin: 20px 0 5px 20px;
 }
