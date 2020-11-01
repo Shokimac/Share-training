@@ -71,15 +71,19 @@
         | チーム別ブックマーク数ランキング
     - @bookmarks.each do |team|
       .bookmark
-        .bookmark__rank
+        .bookmark__image
           = attachment_image_tag team, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png"
-        .bookmark__name
-          = link_to team.name, team_path(team) 
+        .bookmark__zone2
+          .bookmark__name
+            = link_to team.name, team_path(team) 
+          .bookmark__members
+            p
+              | チームメンバー
+            - team.users.each do |member|
+              = link_to " ・#{member.name}", user_path(member)
         .bookmark__count
+          
           = team.bookmarks.count
-        .bookmark__members
-          - team.users.each do |member|
-            = link_to member.name, user_path(member) 
   .allNewMessage
     .allNewMessage__title
       h3
