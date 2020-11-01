@@ -69,7 +69,7 @@
     .ranking__title
       h3
         | チーム別ブックマーク数ランキング
-    - @bookmarks.each do |team|
+    - @bookmarks.each_with_index do |team, i|
       .bookmark
         .bookmark__image
           = attachment_image_tag team, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png"
@@ -81,9 +81,18 @@
               | チームメンバー
             - team.users.each do |member|
               = link_to " ・#{member.name}", user_path(member)
-        .bookmark__count
+          .bookmark__count
+            span
+              | ブックマーク数：
+              = team.bookmarks.count
+        .bookmark__rank
+          - if i == 0
+            p
+              | King
+          - else
+            p
+              | 第#{i+1}位
           
-          = team.bookmarks.count
   .allNewMessage
     .allNewMessage__title
       h3
