@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signUp {
+.signup {
     display: flex;
     width: 80%;
     height: 400px;
@@ -10,7 +10,7 @@
     margin: 10% 40% 10% 10%;
 }
 
-.leftSide {
+.signupLeft {
     width: 25%;
     height: 100%;
     
@@ -30,10 +30,14 @@
     height: 100%;
 }
 
-.rightSide {
+.signupRight {
     width: 45%;
     height: 100%;
     padding: 10px;
+
+    & .field {
+        margin:  auto;
+    }
 }
 
 .field {
@@ -48,4 +52,41 @@
 
 .action {
     margin: 20px 0 5px 20px;
+}
+
+.login {
+    @extend .signup;
+}
+
+.loginLeft {
+    width: 50%;
+    height: 100%;
+    padding-top: 5%;
+
+    & > h2, p {
+        text-align: center;
+        margin: 20px auto;
+    }
+}
+
+.loginRight {
+    width: 50%;
+    height: 100%;
+    padding-top: 5%;
+
+    & .field {
+        margin: 5px 20px 5px 20%;
+
+        & > label {
+            font-size: 1.3em;
+        }
+
+        & > input {
+            width: 100%;
+        }
+    }
+
+    & .action {
+        margin-left: 20%;
+    }
 }
